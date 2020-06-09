@@ -11,7 +11,7 @@ Building the image is fairly straightforward, install `archiso` and the qemu pac
 
 If all goes well, an `.img` file will be placed in the `out` directory, and should be ready to be written to an SD card or USB stick.
 
-##Installation
+## Installation
 The instructions in installation guide in `/root` mostly apply, however there are some things specific to the Pinebook Pro to be aware of:
 
  * The SD card is `/dev/mmcblk1`, eMMC is `mmcblk2` and USB storage will be `/dev/sdX`.
