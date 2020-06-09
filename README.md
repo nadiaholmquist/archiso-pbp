@@ -16,7 +16,7 @@ The instructions in installation guide in `/root` mostly apply, however there ar
 
  * The SD card is `/dev/mmcblk1`, eMMC is `mmcblk2` and USB storage will be `/dev/sdX`.
  * You must leave around 16MB or more of free space before your first partition if you are installing to the eMMC, u-boot will be written here.
- * U-boot looks for a file called `extlinux.conf` in `/`, `/boot`, or `/boot/extlinux` on the first partition marked bootable on the eMMC, an example configuration is provided below.
+ * U-boot looks for a file called `extlinux.conf` in `/extlinux`, or `/boot/extlinux` on the first partition marked bootable on the eMMC, an example configuration is provided below.
  * Currently, the regular `linux-aarch64` and `linux-aarch64-rc` kernels don't work, until this is sorted out you can use the `pinebookpro` repository included in the image (see `/etc/pacman.conf`) and install `linux-pbp` from it.
  * `ap6256-firmware` is needed for the Wi-Fi and Bluetooth to function, and `pbp-keyboard-hwdb` for the brightness control shortcuts to work correctly, both can be installed from the `pinebookpro` repo.
 
