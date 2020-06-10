@@ -152,20 +152,19 @@ make_prepare() {
 make_image() {
 	mkdir -p "${out_dir}"
 	image="${out_dir}/${iso_name}-${iso_version}-pbp.img"
-	truncate -s 700M $image
-#	parted -s $image -- mktable gpt
+	truncate -s $(($(du -sm "${work_dir}/iso" | cut -d"	" -f1)+20))M $image
 	parted -s $image -- mktable msdos
-	parted -s $image -- mkpart primary fat32 16M -0
+	parted -s $image -- mkpart primary fat32 10M -0
 	parted -s $image -- set 1 boot on
 
-	mkdir -p "${out_dir}/mnt"
+	mkdir -p "${work_dir}/mnt"
 	part=$(kpartx $image | cut -d" " -f1)
 	kpartx -a $image
 	mkfs.vfat -n "${iso_label}" /dev/mapper/$part
 
-	mount /dev/mapper/$part "${out_dir}/mnt"
-	cp -r "${work_dir}"/iso/* "${out_dir}/mnt/"
-	umount "${out_dir}/mnt"
+	mount /dev/mapper/$part "${work_dir}/mnt"
+	cp -r "${work_dir}"/iso/* "${work_dir}/mnt/"
+	umount "${work_dir}/mnt"
 
 	kpartx -d $image
 
