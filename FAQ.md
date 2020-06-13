@@ -29,3 +29,8 @@ SigLevel = Optional
 Make sure the paths in it are correct, if you use a separate `/boot` partition, the paths must not start with `/boot` as they are from the root of the filesystem on that partition.
 
 Also ensure that you use a filesystem for `/boot` that u-boot can actually read. FAT32 and ext\* are known to work, but others might work as well.
+
+## The battery discharges even though the charger is plugged in
+This is normal, the Pinebook Pro's hardware can draw more power under heavy load than the bundled charger and the laptop's implementation of USB Power Delivery can actually provide.
+
+The system might also stop charging completely with the LED next to the barrel connector starting to blink, this generally happens if temperatures get too high. Unplug the charger and wait a while, then it should work again.
