@@ -133,7 +133,7 @@ make_boot() {
 LABEL Arch Linux ARM
 KERNEL /arch/boot/aarch64/Image
 FDT /rk3399-pinebook-pro.dtb
-APPEND initrd=/arch/boot/aarch64/archiso.img archisobasedir=$install_dir archisolabel=${iso_label} video=eDP-1:1920x1080@60
+APPEND initrd=/arch/boot/aarch64/archiso.img console=tty1 archisobasedir=$install_dir archisolabel=${iso_label} video=eDP-1:1920x1080@60
 EOF
 }
 
