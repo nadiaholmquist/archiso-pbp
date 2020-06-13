@@ -34,3 +34,6 @@ Also ensure that you use a filesystem for `/boot` that u-boot can actually read.
 This is normal, the Pinebook Pro's hardware can draw more power under heavy load than the bundled charger and the laptop's implementation of USB Power Delivery can actually provide.
 
 The system might also stop charging completely with the LED next to the barrel connector starting to blink, this generally happens if temperatures get too high. Unplug the charger and wait a while, then it should work again.
+
+## Wi-Fi doesn't work well/my 5GHz network is not detected at all
+Install `crda` from the official repositories, then edit `/etc/conf.d/wireless-regdom` and uncomment the one for your country. The change will take effect after a reboot.
