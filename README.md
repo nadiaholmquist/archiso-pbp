@@ -33,8 +33,8 @@ dd if=/boot/u-boot.itb of=/dev/mmcblk2 seek=16384
 Here is a sample `extlinux.conf` file:
 ```
 LABEL Arch Linux ARM
-KERNEL ../boot/Image
-FDT ../boot/dtbs/rockchip/rk3399-pinebook-pro.dtb
-APPEND initrd=../boot/initramfs-linux.img console=tty1 rootwait root=UUID=<UUID> rw
+KERNEL ../Image
+FDT ../dtbs/rockchip/rk3399-pinebook-pro.dtb
+APPEND initrd=../initramfs-linux.img console=tty1 rootwait root=UUID=<UUID> rw
 ```
 Place this example configuration in a directory named `extlinux` in `/boot`. Remember to replace `<UUID>` with your actual partition UUID, or use one of the other options for specifying the root filesystem.
