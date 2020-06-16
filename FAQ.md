@@ -38,5 +38,5 @@ The system might also stop charging completely with the LED next to the barrel c
 ## Wi-Fi doesn't work well/my 5GHz network is not detected at all
 Install `crda` from the official repositories, then edit `/etc/conf.d/wireless-regdom` and uncomment the one for your country. The change will take effect after a reboot.
 
-# System doesn't wake up from suspend
+## System doesn't wake up from suspend
 Suspend currently doesn't work with upstream TF-A, in the meantime you can edit `/etc/systemd/sleep.conf` and set `SuspendState` to `freeze`. This'll make it use s2idle instead which isn't "proper" suspend but will work as a temporary solution until suspend is fixed.
