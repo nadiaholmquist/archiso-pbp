@@ -122,22 +122,19 @@ make_customize_airootfs() {
 
 # Prepare kernel/initramfs ${install_dir}/boot/
 make_boot() {
-    mkdir -p "${work_dir}/iso/${install_dir}/boot/aarch64"
-	lzma -T$(nproc) -c "${work_dir}/aarch64/airootfs/boot/Image" > "${work_dir}/iso/${install_dir}/boot/aarch64/Image.xz"
+    mkdir -p ${work_dir}/iso/${install_dir}/boot/aarch64
+    cp ${work_dir}/aarch64/airootfs/boot/archiso.img ${work_dir}/iso/${install_dir}/boot/aarch64/archiso.img
+    cp ${work_dir}/aarch64/airootfs/boot/Image ${work_dir}/iso/${install_dir}/boot/aarch64/Image
 
-	cp "${work_dir}/aarch64/airootfs/boot/dtbs/rockchip/rk3399-pinebook-pro.dtb" "${work_dir}/iso/${install_dir}/boot/aarch64/"
+	cp "${work_dir}/aarch64/airootfs/boot/dtbs/rockchip/rk3399-pinebook-pro.dtb" "${work_dir}/iso/"
 
-	sed "s/<LABEL>/${iso_label}/" boot.txt > "${work_dir}/boot.txt"
-	mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d "${work_dir}/boot.txt" "${work_dir}/iso/boot.scr"
-	mkimage -A arm -O linux -T ramdisk -n "initrd" -C lzma -d "${work_dir}/aarch64/airootfs/boot/archiso.img" "${work_dir}/iso/${install_dir}/boot/aarch64/archiso.img"
-
-#	mkdir -p "${work_dir}/iso/extlinux"
-#	cat - > "${work_dir}/iso/extlinux/extlinux.conf" <<EOF
-#LABEL Arch Linux ARM
-#KERNEL /arch/boot/aarch64/Image
-#FDT /arch/boot/aarch64/rk3399-pinebook-pro.dtb
-#APPEND initrd=/arch/boot/aarch64/archiso.img console=tty1 archisobasedir=$install_dir archisolabel=${iso_label} video=eDP-1:1920x1080@60
-#EOF
+	mkdir -p "${work_dir}/iso/extlinux"
+	cat - > "${work_dir}/iso/extlinux/extlinux.conf" <<EOF
+LABEL Arch Linux ARM
+KERNEL /arch/boot/aarch64/Image
+FDT /rk3399-pinebook-pro.dtb
+APPEND initrd=/arch/boot/aarch64/archiso.img console=tty1 archisobasedir=$install_dir archisolabel=${iso_label} video=eDP-1:1920x1080@60
+EOF
 }
 
 
