@@ -9,7 +9,7 @@ PKGBUILDs for the packages used in this image can be found [here](https://github
 Check out the [FAQ](./FAQ.md) for common issues you may encounter.
 
 ## Building
-Building the image is fairly straightforward, install `archiso` and the qemu packages if you need them, then clone this repository and run `build.sh` as root.
+Building the image is fairly straightforward, install `archiso`, `multipath-tools`, and the qemu packages if you need them, then clone this repository and run `build.sh` as root.
 
 If all goes well, an `.img` file will be placed in the `out` directory, and should be ready to be written to an SD card or USB stick.
 
