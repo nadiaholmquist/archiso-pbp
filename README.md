@@ -21,6 +21,11 @@ The instructions in installation guide in `/root` mostly apply, however there ar
  * U-boot looks for a file called `extlinux.conf` in `/extlinux`, or `/boot/extlinux` on the first partition marked bootable on the eMMC, an example configuration is provided below.
  * Currently, the regular `linux-aarch64` and `linux-aarch64-rc` kernels don't work, until this is sorted out you can use the `pinebookpro` repository included in the image (see `/etc/pacman.conf`) and install `linux-pbp` from it.
  * `ap6256-firmware` is needed for the Wi-Fi and Bluetooth to function, and `pbp-keyboard-hwdb` for the brightness control shortcuts to work correctly, both can be installed from the `pinebookpro` repo.
+ * The `pinebookpro` repo will be missing from the target system's `pacman.conf`, make sure to edit it and add this if you want to use my prebuilt packages
+ ```
+ [pinebookpro]
+ Server = https://nhp.sh/pinebookpro/
+ ```
 
 ### Writing u-boot to the eMMC
 The Pinebook Pro currently uses u-boot as its bootloader, you can install it with the `uboot-pbp` package in the `pinebookpro` repo. Two files will be placed in `/boot` that need to be written to the eMMC, `idbloader.img` at sector 64 and `u-boot.itb` at sector 16384, they can be installed like this:

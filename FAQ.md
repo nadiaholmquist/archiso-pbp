@@ -22,7 +22,6 @@ The `pacman.conf` installed when running `pacstrap` is the default one from Arch
 ```
 [pinebookpro]
 Server = https://nhp.sh/pinebookpro/
-SigLevel = Optional
 ```
 
 ## I used the `extlinux.conf` example and the system doesn't boot
