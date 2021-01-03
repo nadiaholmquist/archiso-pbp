@@ -1,3 +1,5 @@
+**Notice**: For the time being, you need to use archiso 48 to successfully build this.
+
 # archiso for Pinebook Pro
 
 This repository contains a customized archiso preset for building images for the Pinebook Pro ARM laptop. Pre-built images are available [here](https://github.com/nadiaholmquist/archiso-pbp/releases).
