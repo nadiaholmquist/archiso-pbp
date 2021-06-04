@@ -10,8 +10,8 @@ To resolve this, run:
 ## Pacman shows an error about the repository's GPG key
 Run this, preferably after verifying that your system time is set correctly:
 ```
-pacman-key --recv-keys 955129793AA3C36B
-pacman-key --lsign-key 955129793AA3C36B
+pacman-key --recv-keys 50626D06C63A8C774FCB35D2497FE64338F993E9
+pacman-key --lsign-key 50626D06C63A8C774FCB35D2497FE64338F993E9
 ```
 If that still doesn't work, [try a different keyserver](https://wiki.archlinux.org/title/GnuPG#Key_servers).
 
