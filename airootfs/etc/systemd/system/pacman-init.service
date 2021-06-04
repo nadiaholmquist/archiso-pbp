@@ -10,6 +10,8 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/pacman-key --init
 ExecStart=/usr/bin/pacman-key --populate archlinuxarm
+ExecStart=/usr/bin/pacman-key -a /root/pinebookpro.gpg
+ExecStart=/usr/bin/pacman-key --lsign-key 50626D06C63A8C774FCB35D2497FE64338F993E9
 
 [Install]
 WantedBy=multi-user.target
