@@ -36,6 +36,9 @@ The `pacman.conf` installed when running `pacstrap` is the default one from Arch
 Server = https://nhp.sh/pinebookpro/
 ```
 
+## I am migrating from the previous archived project: [arch-php](https://github.com/nadiaholmquist/arch-pbp)
+Follow the previous step for upgrading the `pinebookpro` repo, then run `pacman -S linux-pbp`, `pacman -Rs uboot-pinebookpro`, and then `pacman -S uboot-pbp` and follow the commands provided by Pacman installation output.
+
 ## I used the `extlinux.conf` example and the system doesn't boot
 Make sure the paths in it are correct, if you use a separate `/boot` partition, the paths must not start with `/boot` as they are from the root of the filesystem on that partition.
 
